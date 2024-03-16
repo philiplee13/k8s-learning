@@ -1,0 +1,31 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: validate-namespaces
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: validate-namespace-has-label
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace
+      validate:
+        message: "Namespaces must have a label associated with them"
+        pattern:
+          metadata:
+            labels:
+              name: "?*" # name label is required
+    - name: validate-namespace-does-not-have-admin-only-label
+      match:
+        any:
+          - resources:
+              kinds:
+                - Namespace
+      validate:
+        message: "Namespaces must have not admin-only label"
+        pattern:
+          metadata:
+            =(labels):
+              X(admin-only): "*?" # admin-only label is not allowed

@@ -1,0 +1,18 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: validate-deployments
+spec:
+  validationFailureAction: Enforce
+  rules:
+    - name: validate-deployment-has-replicas
+      match:
+        any:
+          - resources:
+              kinds:
+                - Deployment
+      validate:
+        message: "Deployments must have a replica count of greater than 2 associated with them"
+        pattern:
+          spec:
+            replicas: ">2" # more than 2 replicas are required

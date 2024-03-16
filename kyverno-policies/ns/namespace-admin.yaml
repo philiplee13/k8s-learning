@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: admin-namespace-with-label
+  labels:
+    admin-only: "true"
+    name: admin-namespace

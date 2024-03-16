@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-api-deployment
+  namespace: test-ns
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: fast-api-container
+          image: tiangolo/uvicorn-gunicorn:python3.11
+          ports:
+            - containerPort: 80

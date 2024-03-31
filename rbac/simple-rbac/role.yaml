@@ -1,0 +1,53 @@
+---
+# test-ns role and role binding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: test-ns
+  name: test-ns-role-no-deletion
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods", "secrets"]
+    verbs: ["get", "watch", "list", "create", "update"] # can't delete resources
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: test-ns-role-bind-no-deletion
+  namespace: test-ns
+subjects:
+  - kind: ServiceAccount
+    name: test-ns-sa
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: test-ns-role-no-deletion # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io
+
+---
+# new-ns role and role binding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: new-ns
+  name: new-ns-role-no-deletion
+rules:
+  - apiGroups: [""] # "" indicates the core API group
+    resources: ["pods", "secrets"]
+    verbs: ["get", "watch", "list", "create", "update"] # can't delete resources
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: new-ns-role-bind-no-deletion
+  namespace: new-ns
+subjects:
+  - kind: ServiceAccount
+    name: new-ns-sa
+roleRef:
+  # "roleRef" specifies the binding to a Role / ClusterRole
+  kind: Role #this must be Role or ClusterRole
+  name: new-ns-role-no-deletion # this must match the name of the Role or ClusterRole you wish to bind to
+  apiGroup: rbac.authorization.k8s.io

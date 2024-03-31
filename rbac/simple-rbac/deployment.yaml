@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: test-ns
+  name: python-sample-deployment
+  labels:
+    app: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: fast-api-container
+          image: tiangolo/uvicorn-gunicorn:python3.11
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+      serviceAccount: test-ns-sa
+
+---
+# our test-ns-sa shouldn't have access to this one
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: new-ns
+  name: python-sample-deployment-in-new-ns
+  labels:
+    app: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+  template:
+    metadata:
+      labels:
+        app: python-app
+    spec:
+      containers:
+        - name: fast-api-container
+          image: tiangolo/uvicorn-gunicorn:python3.11
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

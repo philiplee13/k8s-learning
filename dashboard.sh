@@ -1,3 +1,5 @@
+# dashboard.sh just installs the kubernetes-dashboard
+
 echo "This will install the kubernetes dashboard and run the command to view it in local host"
 echo "This script assumes you're using minikube"
 
@@ -11,4 +13,6 @@ echo "Finished installed kubernetes-dashboard - now running it"
 echo "You are going to need to generate a token - use the following to generate one for a service account"
 echo "kubectl -n NAMESPACE create token SERVICE_ACCOUNT"
 
+
+echo "Running the dashboard - this will take up your terminal"
 kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443

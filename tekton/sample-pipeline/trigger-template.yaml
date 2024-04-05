@@ -1,0 +1,24 @@
+# when an event happens - this creates the pipeline run
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+  name: hello-template
+spec:
+  params:
+    - name: helloUsername
+      default: "Default Hello value"
+    - name: goodbyeUsername
+      default: "Default Goodbye value"
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: hello-goodbye-pipeline-trigger-template
+      spec:
+        pipelineRef:
+          name: hello-goodbye-pipeline
+        params:
+          - name: helloUsername
+            value: $(tt.params.helloUsername)
+          - name: goodbyeUsername
+            value: $(tt.params.goodbyeUsername)

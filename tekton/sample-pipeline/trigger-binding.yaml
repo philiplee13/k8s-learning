@@ -1,0 +1,12 @@
+# binds the event to the given trigger
+
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerBinding
+metadata:
+  name: hello-trigger-binding
+spec:
+  params:
+    - name: helloUsername
+      value: $(body.helloUsername)
+    - name: goodbyeUsername
+      value: $(body.goodbyeUsername)

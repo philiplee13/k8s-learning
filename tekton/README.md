@@ -21,8 +21,3 @@
     - `TaskRun`: An instance of a task - can be invoked on it's own, or apart of a `Pipeline`
     - `Pipeline`: Series of tasks - can be triggered by an event or invoked from a `PipelineRun`
     - `PipelineRun`: Invocation of pipeline resource
-
-
-#### Installing
-- install.sh will take you through installation
-    

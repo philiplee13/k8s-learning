@@ -6,7 +6,7 @@ curl https://storage.googleapis.com/tekton-releases/pipeline/latest/release.nota
 
 # install tekton triggers
 
-oc apply --filename \
+kubectl apply --filename \
 https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
-oc apply --filename \
+kubectl apply --filename \
 https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml

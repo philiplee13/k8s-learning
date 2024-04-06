@@ -21,3 +21,7 @@
             - this looks like it provisions a virtual cluster
             - then you would need to set the KUBECONFIG to access the cli
             - now the question becomes -> how can we run test suites aganist it?
+
+### What I need to do
+- figure out how to run post-sync hook test suite
+- figure out argoCD pr application generator

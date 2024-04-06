@@ -1,0 +1,16 @@
+# sample application using k8s learning repo
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k8s-learning-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/philiplee13/k8s-learning.git
+    targetRevision: HEAD
+    path: argo-cd/deployments
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test-ns

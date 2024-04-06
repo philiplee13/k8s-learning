@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ns.yaml
   - application.yaml
+  - pr-generator.yaml

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: new-test-pr-generator-fast-api-deployment
-  namespace: new-ns
+  namespace: new-test-ns-pr-test
 spec:
   replicas: 1
   selector:

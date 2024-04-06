@@ -1,4 +1,12 @@
 #!/bin/sh
-# install pipelines
+echo "installing tekton on openshift"
+
+# install tekton
+curl https://storage.googleapis.com/tekton-releases/pipeline/latest/release.notags.yaml | yq 'del(.spec.template.spec.containers[].securityContext.runAsUser, .spec.template.spec.containers[].securityContext.runAsGroup)' | oc apply -f -
+
+# install tekton triggers
+
 kubectl apply --filename \
-https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
+kubectl apply --filename \
+https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml

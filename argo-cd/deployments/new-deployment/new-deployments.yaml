@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-test-pr-generator-fast-api-deployment
+  namespace: new-test-ns-pr-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: new-python-app
+  template:
+    metadata:
+      labels:
+        app: new-python-app
+    spec:
+      containers:
+        - name: new-fast-api-container
+          image: tiangolo/uvicorn-gunicorn:python3.11
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

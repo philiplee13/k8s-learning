@@ -4,7 +4,7 @@ set -e # exit on any error
 cd tekton/kind/dev
 
 kubectl get ns
-kubectl apply -k kustomization.yaml
+kustomize build . | envsubst '$NAMESPACE' | kubectl apply -f-
 
 kubectl get ns
 kubectl get pods -n $NAMESPACE

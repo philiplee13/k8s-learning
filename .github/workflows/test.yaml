@@ -11,15 +11,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - name: check
       - uses: actions/checkout@v3
-      - name: check directory
       - run: |
           ls -al
-      # - name: Install script
-      #   run: |
-      #     chmod +x ../scripts/install.sh
-      #     ../install.sh
-      # - name: Apply and verify
-      #   run: |
-      #     chmod +x ../scripts/verify.sh
-      #     ../verify.sh

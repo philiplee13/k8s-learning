@@ -1,12 +1,9 @@
 #!/bin/sh
-echo "installing tekton on openshift"
+echo "installing tekton on minikube using operator"
 
-# install tekton
-curl https://storage.googleapis.com/tekton-releases/pipeline/latest/release.notags.yaml | yq 'del(.spec.template.spec.containers[].securityContext.runAsUser, .spec.template.spec.containers[].securityContext.runAsGroup)' | oc apply -f -
+# installs operator
+kubectl apply -f https://storage.googleapis.com/tekton-releases/operator/latest/release.yaml
 
-# install tekton triggers
-
-kubectl apply --filename \
-https://storage.googleapis.com/tekton-releases/triggers/latest/release.yaml
-kubectl apply --filename \
-https://storage.googleapis.com/tekton-releases/triggers/latest/interceptors.yaml
+# installs components - "all"
+# https://github.com/tektoncd/operator/blob/main/docs/install.md
+kubectl apply -f https://raw.githubusercontent.com/tektoncd/operator/main/config/crs/kubernetes/config/all/operator_v1alpha1_config_cr.yaml

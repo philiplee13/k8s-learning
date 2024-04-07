@@ -16,3 +16,6 @@ jobs:
         run: |
           chmod +x ./scripts/install.sh
           ./scripts/install.sh
+
+          chmod +x ./scripts/verify.sh
+          ./scripts/verify.sh

@@ -33,12 +33,9 @@ spec:
       source:
         repoURL: "https://github.com/philiplee13/k8s-learning.git"
         targetRevision: "{{head_sha}}"
-        path: argo-cd/deployments/ # so this being hardcoded can cause issues
-        # wonder if we can find something here
-        # or if we set to the original - will it deploy everything?
-        # what if namespace conflicts?
-        # how does it create resources in the new namespace
-        # what happens if we point it to an overlay?
+        path: argo-cd/deployments/ # so this can be kustomize too
+        directory:
+          recurse: true
       project: "default"
       destination:
         server: https://kubernetes.default.svc

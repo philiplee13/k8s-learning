@@ -1,0 +1,16 @@
+apiVersion: infrastructure.cluster.x-k8s.io/v1alpha1
+kind: VCluster
+metadata:
+  name: vcluster-example
+spec:
+  kubernetesVersion: "1.28.3"
+  # kubernetesImage: "${KUBERNETES_IMAGE:=null}"
+  # virtualClusterVersion: "${VCLUSTER_VERSION:=}"
+  # helmRelease:
+  #   values: "${HELM_VALUES:=}"
+  #   chart:
+  #     name: ${CHART_NAME:=null}
+  #     repo: ${CHART_REPO:=null}
+  # controlPlaneEndpoint:
+  #   host: ${VCLUSTER_HOST:=""}
+  #   port: ${VCLUSTER_PORT:=0}

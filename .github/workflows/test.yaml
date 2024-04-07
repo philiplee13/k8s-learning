@@ -1,0 +1,28 @@
+name: Integration tests
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+      - "**" # every single branch
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: install tools
+        run: |
+          chmod +x ./scripts/install.sh
+          ./scripts/install.sh
+
+      - name: apply resources and verify
+        run: |
+
+          chmod +x ./scripts/set-env-vars.sh
+          . ./scripts/set-env-vars.sh
+
+          echo $NAMESPACE
+          chmod +x ./scripts/verify.sh
+          ./scripts/verify.sh

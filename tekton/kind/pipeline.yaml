@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: kind-test-run
+  name: kind-test-run-updated
 spec:
   pipelineSpec:
     workspaces:

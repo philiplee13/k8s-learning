@@ -12,10 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install k3s and kubectl
+      - name: install tools and set up env vars
         run: |
           chmod +x ./scripts/install.sh
           ./scripts/install.sh
 
+          chmod +x ./scripts/set-env-vars.sh
+          . ./scripts/set-env-vars.sh
+
+      - uses: actions/checkout@v3
+      - name: apply resources and verify
+        run: |
           chmod +x ./scripts/verify.sh
           ./scripts/verify.sh

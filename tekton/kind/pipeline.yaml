@@ -20,6 +20,8 @@ spec:
         taskRef:
           name: kind
         params:
+          # so this might not work - k3s and kind both need docker to create clusters
+          # oob this doesn't seem like it works
           - name: command
             value: ["ls -al $(workspaces.source.path)"]
           - name: image

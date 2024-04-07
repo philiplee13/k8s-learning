@@ -12,9 +12,3 @@ sudo chown runner $HOME/.kube/config
 sudo chmod go-r $HOME/.kube/config
 kubectl version
 
-
-echo "Now installing git and other cli tools"
-
-apt-get update && apt-get install git -y
-
-git clone https://github.com/philiplee13/k8s-learning.git

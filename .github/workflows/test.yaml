@@ -12,15 +12,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: install tools and set up env vars
+      - name: install tools
         run: |
           chmod +x ./scripts/install.sh
           ./scripts/install.sh
 
+      - name: apply resources and verify
+        run: |
+
           chmod +x ./scripts/set-env-vars.sh
           . ./scripts/set-env-vars.sh
 
-      - name: apply resources and verify
-        run: |
+          echo $NAMESPACE
           chmod +x ./scripts/verify.sh
           ./scripts/verify.sh

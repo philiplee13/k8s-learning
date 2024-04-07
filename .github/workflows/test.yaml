@@ -11,7 +11,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
-      - name: check
       - uses: actions/checkout@v3
+      - name: check directory
       - run: |
           ls -al

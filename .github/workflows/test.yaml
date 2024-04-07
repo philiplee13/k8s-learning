@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: check directory
+      - name: install k3s and kubectl
         run: |
-          ls -al
+          chmod +x ./scripts/install.sh
+          ./scripts/install.sh

@@ -8,3 +8,6 @@ kustomize build . | envsubst '$NAMESPACE' | kubectl apply -f-
 
 kubectl get ns
 kubectl get pods -n $NAMESPACE
+
+# need to invoke the tests here
+# also wait for resources to come up

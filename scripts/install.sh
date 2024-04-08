@@ -12,3 +12,8 @@ sudo chown runner $HOME/.kube/config
 sudo chmod go-r $HOME/.kube/config
 kubectl version
 
+# install kuttl
+curl -SSL "https://github.com/kudobuilder/kuttl/releases/download/v0.15.0/kuttl_0.15.0_linux_x86_64.tar.gz" | tar -xz -C /usr/local/bin
+
+kubectl kuttl version
+

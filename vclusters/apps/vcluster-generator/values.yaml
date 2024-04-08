@@ -1,4 +1,4 @@
-cluster_name: ""
+cluster_name: "test-cluster-name"
 chart_name: "null"
 # chart_name: "vcluster-k8s"
 chart_repo: "null"

@@ -23,11 +23,11 @@ spec:
           # appSecretName: github-app-repo-creds
           # Labels is used to filter the PRs that you want to target. (optional)
           labels:
-            - pr-test
+            - preview
         requeueAfterSeconds: 10
   template:
     metadata:
-      name: "myapp-{{branch}}-{{number}}"
+      name: "pr-generated-{{branch}}-{{number}}"
       namespace: argocd
     spec:
       source:
@@ -46,5 +46,3 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
-          - ApplyOutOfSyncOnly=true
-          - ServerSideApply=true

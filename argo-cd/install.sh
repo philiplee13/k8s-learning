@@ -15,20 +15,20 @@ echo "You're also going to need the pw - find it using the cli by running \nargo
 echo "Or you can find it by decoding the secret \n kubectl get secret argocd-initial-admin-secret -n argocd --template={{.data.password}} | base64 -D"
 
 
-echo "argo workflows"
-kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.5/install.yaml
-kubectl patch deployment \
-  argo-server \
-  --namespace argo \
-  --type='json' \
-  -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [
-  "server",
-  "--auth-mode=server"
-]}]'
+# echo "argo workflows"
+# kubectl apply -n argo -f https://github.com/argoproj/argo-workflows/releases/download/v3.5.5/install.yaml
+# kubectl patch deployment \
+#   argo-server \
+#   --namespace argo \
+#   --type='json' \
+#   -p='[{"op": "replace", "path": "/spec/template/spec/containers/0/args", "value": [
+#   "server",
+#   "--auth-mode=server"
+# ]}]'
 
 
-echo "argo events"
-kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
-kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install-validating-webhook.yaml
-kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
+# echo "argo events"
+# kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install.yaml
+# kubectl apply -f https://raw.githubusercontent.com/argoproj/argo-events/stable/manifests/install-validating-webhook.yaml
+# kubectl apply -n argo-events -f https://raw.githubusercontent.com/argoproj/argo-events/stable/examples/eventbus/native.yaml
 

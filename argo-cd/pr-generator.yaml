@@ -24,7 +24,7 @@ spec:
           # Labels is used to filter the PRs that you want to target. (optional)
           labels:
             - preview
-        requeueAfterSeconds: 10
+        requeueAfterSeconds: 15
   template:
     metadata:
       name: "pr-generated-{{branch}}-{{number}}"

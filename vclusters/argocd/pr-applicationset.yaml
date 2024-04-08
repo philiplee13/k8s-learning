@@ -18,19 +18,20 @@ spec:
           #   key: token
           labels:
             - pr-test
+        requeueAfterSeconds: 10
   template:
     metadata:
       name: "pr-demo--{{branch}}--pr-{{number}}"
     spec:
       source:
         repoURL: "https://github.com/philiplee13/k8s-learning.git"
-        targetRevision: "HEAD"
-        path: basic-deployments
-        helm:
-          parameters:
-            - name: cluster_name
-              value: demo-pr-{{number}}
-      project: vcluster
+        targetRevision: "{{head_sha}}"
+        path: argo-cd/deployments
+        # helm:
+        #   parameters:
+        #     - name: cluster_name
+        #       value: demo-pr-{{number}}
+      project: default
       destination:
         name: in-cluster
         namespace: vcluster

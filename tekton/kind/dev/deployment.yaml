@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: fast-api-deployment
-  namespace: $NAMESPACE
+  namespace: dev-ns
 spec:
   replicas: 1
   selector:

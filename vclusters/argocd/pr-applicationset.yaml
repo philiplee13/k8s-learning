@@ -26,7 +26,7 @@ spec:
       source:
         repoURL: "https://github.com/philiplee13/k8s-learning.git"
         targetRevision: "{{head_sha}}"
-        path: argo-cd/deployments
+        path: vclusters/app/vcluster-generator
         # helm:
         #   parameters:
         #     - name: cluster_name

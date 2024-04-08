@@ -4,7 +4,7 @@ metadata:
   name: fast-api-deployment
   namespace: test-ns
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: python-app

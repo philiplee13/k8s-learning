@@ -16,6 +16,8 @@ spec:
           # tokenRef:
           #   secretName: github-token
           #   key: token
+          labels:
+            - pr-test
   template:
     metadata:
       name: "pr-demo--{{branch}}--pr-{{number}}"
@@ -23,7 +25,7 @@ spec:
       source:
         repoURL: "https://github.com/philiplee13/k8s-learning.git"
         targetRevision: "HEAD"
-        path: apps/vcluster-generator
+        path: basic-deployments
         helm:
           parameters:
             - name: cluster_name

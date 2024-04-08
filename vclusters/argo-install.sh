@@ -4,6 +4,9 @@
 # assumes minikube is running
 
 kubectl create namespace argocd
+kubectl create namespace argo
+kubectl create namespace argo-events
+kubectl create namespace vcluster
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 echo "You can access the dashboard by port fowarding\n"

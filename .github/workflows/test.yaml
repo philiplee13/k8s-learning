@@ -17,17 +17,15 @@ jobs:
           chmod +x ./scripts/install.sh
           ./scripts/install.sh
 
-          kubectl config view -o yaml
-      # we might need to set KUBECONFIG here as well
-      # - name: apply resources and verify
-      #   run: |
+      - name: apply resources and verify
+        run: |
 
-      #     chmod +x ./scripts/set-env-vars.sh
-      #     . ./scripts/set-env-vars.sh
+          chmod +x ./scripts/set-env-vars.sh
+          . ./scripts/set-env-vars.sh
 
-      #     echo $NAMESPACE
-      #     chmod +x ./scripts/verify.sh
-      #     ./scripts/verify.sh
+          echo $NAMESPACE
+          chmod +x ./scripts/verify.sh
+          ./scripts/verify.sh
 
 # now I want to use both kuttl and terratest to validate the tests
 # so I probably need the following

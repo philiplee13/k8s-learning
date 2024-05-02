@@ -1,0 +1,37 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: policy-patch-cm
+spec:
+  mutateExistingOnPolicyUpdate: true
+  rules:
+    - name: policy-patch-cm-test
+      match:
+        all:
+          - resources:
+              names:
+                - test-cm
+              kinds:
+                - ConfigMap
+              namespaces:
+                - test-ns
+          - resources:
+              names:
+                - test-ns
+              kinds:
+                - Namespace
+      mutate:
+        targets:
+          - apiVersion: v1
+            kind: ConfigMap
+            name: test-cm-1
+            namespace: test-ns
+        patchesJson6902: |-
+          - path: "/data/ship.properties"
+            op: add
+            value: |
+              type=starship
+              owner=utany.corp
+          - path: "/data/newKey1"
+            op: add
+            value: newValue1

@@ -1,0 +1,32 @@
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: generate-resource
+spec:
+  generateExisting: true
+  rules:
+    - name: generate-resource-service-entry
+      match:
+        all:
+          - resources:
+              kinds:
+                - Namespace
+              selector:
+                matchExpressions:
+                  - key: aws-resource-create
+                    operator: Exists
+      generate:
+        synchronize: true
+        apiVersion: networking.istio.io/v1alpha3
+        kind: ServiceEntry
+        name: "{{request.object.metadata.name}}-aws-sources-https"
+        # generate the resource in the new namespace
+        namespace: "{{request.object.metadata.name}}"
+        data:
+          spec:
+            hosts:
+              - "host-goes-here"
+            ports:
+              - number: 443
+                name: https
+                protocol: HTTPS

@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+networks:
+  default:
+    driver_opts:
+      com.docker.network.bridge.gateway_mode_ipv4: nat-unprotected # when used with docker-mac-net-connect -> this allows you to talk to containers via ip

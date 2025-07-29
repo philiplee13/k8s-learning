@@ -26,3 +26,7 @@
     - `deployment.yaml`
       - files under the `templates` directory are treated as dynamic yaml templates using go's templating language
       - the values in `values.yaml` are used to generate these manifests to apply in the cluster
+
+## to
+
+- write own helm chart

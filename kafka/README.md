@@ -10,3 +10,5 @@
   - kafka exporter -> extract additional metrics
   - kafka bridge -> enable http based communication with kafka
   - cruise control -> rebalance topic partitions across brokers
+
+### Admin

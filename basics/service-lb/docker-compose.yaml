@@ -8,3 +8,4 @@ networks:
   default:
     driver_opts:
       com.docker.network.bridge.gateway_mode_ipv4: nat-unprotected # when used with docker-mac-net-connect -> this allows you to talk to containers via ip
+      # find a way to expose this across network

@@ -58,3 +58,5 @@
     - pretty much just standard logs in an application
     - not much help by themselves, but helpful in spans, or correlated with a trace
     - used by developers to understand system behavior
+
+### Todo

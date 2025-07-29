@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/philiplee13/k8s-learning/compare/v1.1.0...v1.2.0) (2025-07-29)
+
+
+### Features
+
+* dev to main ([6ae6c33](https://github.com/philiplee13/k8s-learning/commit/6ae6c33b118b362b130f2af12dfe5ce1702e23fc))
+
 ## [1.1.0](https://github.com/philiplee13/k8s-learning/compare/v1.0.0...v1.1.0) (2025-07-29)
 
 

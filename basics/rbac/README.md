@@ -10,21 +10,22 @@
   - we don't want developers in team a to see resources in team b
 
 ### Layers of Kubernetes Access Control
+
 - there's 3 layers essentially
-    - authentication
-        - after the request gets past TLS - it needs to be passed through one or more authentication modules
-        - authentication modules are provisioned on cluster creation, can have multiple in which case the request will go through each one until one passes
-        - some examples are client certificates, passwords, plain tokens, bootstrap tokens, JWT tokens (used for service accounts)
-        - client certificates are probably most common
-    - authorization
-        - once an api request is authenticated - it needs to check the authorization to see if it has the correct permissions
-        - kubernetes looks at 3 aspects
-            - who intiated the action
-            - what they're trying to do
-            - object affected by action
-        - these are where roles come into play
-    - admission controller
-        - https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
+  - authentication
+    - after the request gets past TLS - it needs to be passed through one or more authentication modules
+    - authentication modules are provisioned on cluster creation, can have multiple in which case the request will go through each one until one passes
+    - some examples are client certificates, passwords, plain tokens, bootstrap tokens, JWT tokens (used for service accounts)
+    - client certificates are probably most common
+  - authorization
+    - once an api request is authenticated - it needs to check the authorization to see if it has the correct permissions
+    - kubernetes looks at 3 aspects
+      - who intiated the action
+      - what they're trying to do
+      - object affected by action
+    - these are where roles come into play
+  - admission controller
+    - https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 
 ### Roles
 

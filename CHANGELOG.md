@@ -1,5 +1,6 @@
 # Changelog
 
+<<<<<<< HEAD
 ## [1.2.0](https://github.com/philiplee13/k8s-learning/compare/v1.1.0...v1.2.0) (2025-07-29)
 
 
@@ -25,6 +26,8 @@
 
 * adding admin section ([0d8998f](https://github.com/philiplee13/k8s-learning/commit/0d8998f4bcf9e31e4472ae86d7652a54c15bf62f))
 
+=======
+>>>>>>> acc5553 (chore(main): release 1.0.0)
 ## 1.0.0 (2025-07-29)
 
 
